@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hideaway index{% endblock %}
+
+{% block body %}
+    <h1>Hideaway index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Location</th>
+                <th>Country</th>
+                <th>Hideaway_type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hideaway in hideaways %}
+            <tr>
+                <td>{{ hideaway.id }}</td>
+                <td>{{ hideaway.location }}</td>
+                <td>{{ hideaway.country }}</td>
+                <td>{{ hideaway.hideawayType }}</td>
+                <td>
+                    <a href="{{ path('hideaway_show', {'id': hideaway.id}) }}">show</a>
+                    <a href="{{ path('hideaway_edit', {'id': hideaway.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hideaway_new') }}">Create new</a>
+{% endblock %}

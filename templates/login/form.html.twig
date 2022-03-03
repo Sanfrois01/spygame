@@ -1,0 +1,12 @@
+<form action="{{ path('login') }}" method="post">
+	<label for="username">Email:</label>
+	<input type="text" id="username" name="_username" value="{{ last_username|default('') }}"/>
+
+	<label for="password">Password:</label>
+	<input type="password" id="password" name="_password"/>
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+	<input type="hidden" name="_target_path" value="{{ path('missions_index') }}"/>
+	<button type="submit">login</button>
+</form>
+

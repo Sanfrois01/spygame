@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Agent{% endblock %}
+
+{% block body %}
+    <h1>Creattion d'un nouvel agent</h1>
+
+    {{ include('agents/_form.html.twig') }}
+
+    <a href="{{ path('agents_index') }}">retour a la liste</a>
+{% endblock %}

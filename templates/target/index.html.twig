@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Target index{% endblock %}
+
+{% block body %}
+    <h1>Liste des cibles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code de la cible</th>
+                <th>Nom de la cible</th>
+                <th>Date de naissance</th>
+                <th>Nationalité</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for target in targets %}
+            <tr>
+                <td>{{ target.id }}</td>
+                <td>{{ target.fullname }}</td>
+                <td>{{ target.birthdate ? target.birthdate|date('Y-m-d') : '' }}</td>
+                <td>{{ target.nationality }}</td>
+                <td>
+                    <a href="{{ path('target_show', {'id': target.id}) }}">Voir la cible</a>
+                    <a href="{{ path('target_edit', {'id': target.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('target_new') }}">Ajouter une nouvelle cible</a>
+{% endblock %}

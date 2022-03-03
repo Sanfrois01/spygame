@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agent index{% endblock %}
+
+{% block body %}
+    <h1>Liste des agents</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom de code</th>
+                <th>Nom de l'agent</th>
+                <th>Date de naissance</th>
+                <th>Nationalité</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agent in agents %}
+            <tr>
+                <td>{{ agent.id }}</td>
+                <td>{{ agent.fullname }}</td>
+                <td>{{ agent.birthdate ? agent.birthdate|date('Y-m-d') : '' }}</td>
+                <td>{{ agent.nationality }}</td>
+                <td>
+                    <a href="{{ path('agents_show', {'id': agent.id}) }}">Voir</a>
+                    <a href="{{ path('agents_edit', {'id': agent.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun agent trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('agents_new') }}">Ajouter un nouvel agent</a>
+{% endblock %}

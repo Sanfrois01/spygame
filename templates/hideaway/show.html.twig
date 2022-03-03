@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hideaway{% endblock %}
+
+{% block body %}
+    <h1>Hideaway</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hideaway.id }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ hideaway.location }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ hideaway.country }}</td>
+            </tr>
+            <tr>
+                <th>Hideaway_type</th>
+                <td>{{ hideaway.hideawayType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hideaway_index') }}">back to list</a>
+
+    <a href="{{ path('hideaway_edit', {'id': hideaway.id}) }}">edit</a>
+
+    {{ include('hideaway/_delete_form.html.twig') }}
+{% endblock %}

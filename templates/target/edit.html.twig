@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer la Cible{% endblock %}
+
+{% block body %}
+    <h1>Editer la Cible</h1>
+
+    {{ include('target/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('target_index') }}">back to list</a>
+
+    {{ include('target/_delete_form.html.twig') }}
+{% endblock %}
