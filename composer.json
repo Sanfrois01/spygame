@@ -86,9 +86,7 @@
         "symfony/polyfill-php80": "*"
     },
     "scripts": {
-        "compile": [
-            "php bin/console doctrine:migrations:migrate"
-        ],
+        
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
